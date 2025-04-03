@@ -52,7 +52,7 @@ jobs:
         path: .
   # Uploads dependency graph to GitHub to receive Dependabot alerts 
   update_dependence_graph:
-    needs: maven-test
+    needs: [maven_test]
 
     runs-on: ubuntu-latest
 
@@ -65,6 +65,13 @@ jobs:
       key: cached-build-${{github.sha}}
       path: .
 
+    # The uses: keyword invokes a GitHub action:
+    # https://github.com/marketplace/actions/checkout
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Update dependency graph
+      uses: advanced-security/maven-dependency-submission-action@v3
     steps:
 
     # https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission
