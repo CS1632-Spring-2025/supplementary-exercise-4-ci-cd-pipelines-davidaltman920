@@ -1,14 +1,14 @@
 package edu.pitt.cs;
 
 import org.junit.After;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CatUnitTest {
+public class CatUnitTest {//do these first
 
 	/**
 	 * The test fixture for this JUnit test. Test fixture: a fixed state of a set of
@@ -23,13 +23,16 @@ public class CatUnitTest {
 	@Before
 	public void setUp() throws Exception {
 		// INITIALIZE THE TEST FIXTURE
-		
+
 		// Create a Cat with ID 1 and name "Jennyanydots", assign to c using a call to Cat.createInstance(InstanceType, int, String).
 		// Passing InstanceType.IMPL as the first parameter will create a real cat using your CatImpl implementation.
 		// Passing InstanceType.MOCK as the first parameter will create a mock cat using Mockito.
 		// Which type is the correct choice for this unit test?  I'll leave it up to you.  The answer is in the Unit Testing Part 2 lecture. :)
 		// TODO: Fill in
 		c = Cat.createInstance(InstanceType.IMPL, 1, "Jennyanydots");
+
+
+
 	}
 
 	@After
@@ -50,8 +53,9 @@ public class CatUnitTest {
 	 */
 	@Test
 	public void testGetId() {
-		assertTrue(c.getId() == 1);
-		//System.out.println(c.getId());
+		// TODO: Fill in
+		c.getId();
+		assertEquals(c.getId(), 1);
 	}
 
 	/**
@@ -63,93 +67,93 @@ public class CatUnitTest {
 	 * Postconditions: Return value is "Jennyanydots".
 	 * </pre>
 	 */
-	// @Test
-	// public void testGetName() {
-	// 	assertTrue(c.getName().equals("Jennyanydots"));
-	// 	//System.out.println(c.getName());
+	@Test
+	public void testGetName() {
+		// TODO: Fill in
+		assertEquals(c.getName(), "Jennyanydots");
+	}
 
-	// }
+	/**
+	 * Test case for int getRented().
+	 * 
+	 * <pre>
+	 * Preconditions: c has been created with ID 1, and name "Jennyanydots".
+	 * Execution steps: Call c.getRented().
+	 * Postconditions: Return value is false.
+	 * </pre>
+	 */
+	@Test
+	public void testGetRented() {
+		// TODO: Fill in
+		assertEquals(c.getRented(), false);
+	}
 
-	// /**
-	//  * Test case for int getRented().
-	//  * 
-	//  * <pre>
-	//  * Preconditions: c has been created with ID 1, and name "Jennyanydots".
-	//  * Execution steps: Call c.getRented().
-	//  * Postconditions: Return value is false.
-	//  * </pre>
-	//  */
-	// @Test
-	// public void testGetRented() {
-	// 	assertTrue(!c.getRented());
-	// 	//System.out.println(c.getRented());
-	// }
+	/**
+	 * Test case for int toString().
+	 * 
+	 * <pre>
+	 * Preconditions: c has been created with ID 1, and name "Jennyanydots".
+	 * Execution steps: Call c.toString().
+	 * Postconditions: Return value is "ID 1. Jennyanydots".
+	 * </pre>
+	 */
+	@Test
+	public void testToString() {
+		// TODO: Fill in
+		assertEquals(c.toString(), "ID 1. Jennyanydots");
+	}
 
-	// /**
-	//  * Test case for int toString().
-	//  * 
-	//  * <pre>
-	//  * Preconditions: c has been created with ID 1, and name "Jennyanydots".
-	//  * Execution steps: Call c.toString().
-	//  * Postconditions: Return value is "ID 1. Jennyanydots".
-	//  * </pre>
-	//  */
-	// @Test
-	// public void testToString() {
-	// 	assertTrue(c.toString().equals("ID 1. Jennyanydots"));
-	// 	//c.toString();
-	// }
+	/**
+	 * Test case for int rentCat().
+	 * 
+	 * <pre>
+	 * Preconditions: c has been created with ID 1, and name "Jennyanydots".
+	 * Execution steps: Call c.rentCat().
+	 *                  Call c.getRented().
+	 * Postconditions: Return value of c.getRented() is true.
+	 * </pre>
+	 */
+	@Test
+	public void testRentCat() {
+		// TODO: Fill in
+		c.rentCat();
+		assertEquals(c.getRented(), true);
+	}
 
-	// /**
-	//  * Test case for int rentCat().
-	//  * 
-	//  * <pre>
-	//  * Preconditions: c has been created with ID 1, and name "Jennyanydots".
-	//  * Execution steps: Call c.rentCat().
-	//  *                  Call c.getRented().
-	//  * Postconditions: Return value of c.getRented() is true.
-	//  * </pre>
-	//  */
-	// @Test
-	// public void testRentCat() {
-	// 	c.rentCat();
-	// 	assertTrue(c.getRented());
-	// 	//System.out.println(c.getRented());
-	// }
+	/**
+	 * Test case for int returnCat().
+	 * 
+	 * <pre>
+	 * Preconditions: c has been created with ID 1, and name "Jennyanydots".
+	 *                c has been rented.
+	 * Execution steps: Call c.returnCat().
+	 *                  Call c.getRented().
+	 * Postconditions: Return value of c.getRented() is false.
+	 * </pre>
+	 */
+	@Test
+	public void testReturnCat() {
+		// TODO: Fill in
+		c.returnCat();
+		assertEquals(c.getRented(), false);
+	}
 
-	// /**
-	//  * Test case for int returnCat().
-	//  * 
-	//  * <pre>
-	//  * Preconditions: c has been created with ID 1, and name "Jennyanydots".
-	//  *                c has been rented.
-	//  * Execution steps: Call c.returnCat().
-	//  *                  Call c.getRented().
-	//  * Postconditions: Return value of c.getRented() is false.
-	//  * </pre>
-	//  */
-	// @Test
-	// public void testReturnCat() {
-	// 	c.returnCat();
-	// 	assertTrue(!c.getRented());
-	// 	//System.out.println(c.getRented());
-	// }
-
-	// /**
-	//  * Test case for int renameCat().
-	//  * 
-	//  * <pre>
-	//  * Preconditions: c has been created with ID 1, and name "Jennyanydots".
-	//  * Execution steps: Call c.renameCat("Garfield").
-	//  * Postconditions: Return value of c.getName() is "Garfield".
-	//  *                 Return value of c.toString() is "ID 1. Garfield".
-	//  * </pre>
-	//  */
-	// @Test
-	// public void testRenameCat() {
-	// 	c.renameCat("Garfield");
-	// 	assertTrue(c.getName().equals("Garfield"));
-	// 	assertTrue(c.toString().equals("ID 1. Garfield"));
-	// }
+	/**
+	 * Test case for int renameCat().
+	 * 
+	 * <pre>
+	 * Preconditions: c has been created with ID 1, and name "Jennyanydots".
+	 * Execution steps: Call c.renameCat("Garfield").
+	 * Postconditions: Return value of c.getName() is "Garfield".
+	 *                 Return value of c.toString() is "ID 1. Garfield".
+	 * </pre>
+	 */
+	@Test
+	public void testRenameCat() {
+		// TODO: Fill in
+		c.renameCat("Garfield");
+		assertEquals(c.getName(), "Garfield");
+		assertEquals(c.toString(), "ID 1. Garfield");
+	}
 
 }
